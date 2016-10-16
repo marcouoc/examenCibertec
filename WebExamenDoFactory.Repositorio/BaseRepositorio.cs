@@ -12,9 +12,16 @@ namespace WebExamenDoFactory.Repositorio
     {
 
         protected WebContextDb db;
+        private WebContextDb @object;
+
         public BaseRepositorio()
         {
             db = new WebContextDb();
+        }
+
+        public BaseRepositorio(WebContextDb context)
+        {
+            db = context;
         }
 
         public int Actualizar(T entidad)

@@ -7,12 +7,15 @@ using WebExamenDoFactory.Repositorio;
 
 namespace WebExamenDoFactory.Areas.DoFactoryBD.Controllers
 {
+    [Authorize]
+   // [ExceptionControl]
+    [OutputCache(Duration = 0)]
     public class FactoryBaseController <T> : Controller where T : class
     {
         protected IRepositorio<T> _repositorio;
-        public FactoryBaseController()
+        public FactoryBaseController(IRepositorio<T> repositorio)
         {
-            _repositorio = new BaseRepositorio<T>();
+            _repositorio = repositorio;
         }
     }
 }

@@ -4,19 +4,23 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WebExamenDoFactory.Model;
+using WebExamenDoFactory.Repositorio;
 
 namespace WebExamenDoFactory.Areas.DoFactoryBD.Controllers
 {
     public class ProveedorController : FactoryBaseController<Supplier>
     {
-      
+
+        public ProveedorController(IRepositorio<Supplier> repositorio) : base(repositorio)
+        {
+        }
         public ActionResult Index()
         {
             //return View();
             return View(_repositorio.PaginacionListaPorApellido((x => x.CompanyName), 1, 30));
 
         }
-        public ActionResult Creacion()
+        public ActionResult Create()
         {
             return View();
         }
@@ -40,7 +44,7 @@ namespace WebExamenDoFactory.Areas.DoFactoryBD.Controllers
         }
 
         [HttpPost]
-        public ActionResult Creacion(Supplier proveedor)
+        public ActionResult Create(Supplier proveedor)
         {
             if (!ModelState.IsValid) return View(proveedor);
 
@@ -50,18 +54,18 @@ namespace WebExamenDoFactory.Areas.DoFactoryBD.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Editar(int id)
+        public ActionResult Edit(int id)
         {
             return View(_repositorio.ObtenerPorId(x => x.Id == id));
         }
 
-        public ActionResult Detalles(int id)
+        public ActionResult Details(int id)
         {
             return View(_repositorio.ObtenerPorId(x => x.Id == id));
         }
 
         [HttpPost]
-        public ActionResult Editar(Supplier proveedor)
+        public ActionResult Edit(Supplier proveedor)
         {
             if (!ModelState.IsValid) return View(proveedor);
 
@@ -70,13 +74,13 @@ namespace WebExamenDoFactory.Areas.DoFactoryBD.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult Eliminar(int id)
+        public ActionResult Delete(int id)
         {
             return View(_repositorio.ObtenerPorId(x => x.Id == id));
         }
 
         [HttpPost]
-        public ActionResult Eliminar(int? id)
+        public ActionResult Delete(int? id)
         {
             if (!id.HasValue) return RedirectToAction("Index");
 

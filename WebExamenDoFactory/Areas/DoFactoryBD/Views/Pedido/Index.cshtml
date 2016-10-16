@@ -1,10 +1,10 @@
-﻿@model IEnumerable<WebExamenDoFactory.Model.OrderItem>
+﻿@model IEnumerable<WebExamenDoFactory.Model.Order>
 
 @{
-    ViewBag.Title = "Lista";
+    ViewBag.Title = "Index";
 }
 
-<h2>Lista</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -12,16 +12,16 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.OrderId)
+            @Html.DisplayNameFor(model => model.OrderDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProductId)
+            @Html.DisplayNameFor(model => model.OrderNumber)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.UnitPrice)
+            @Html.DisplayNameFor(model => model.CustomerId)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Quantity)
+            @Html.DisplayNameFor(model => model.TotalAmount)
         </th>
         <th></th>
     </tr>
@@ -29,16 +29,16 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.OrderId)
+            @Html.DisplayFor(modelItem => item.OrderDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.ProductId)
+            @Html.DisplayFor(modelItem => item.OrderNumber)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.UnitPrice)
+            @Html.DisplayFor(modelItem => item.CustomerId)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Quantity)
+            @Html.DisplayFor(modelItem => item.TotalAmount)
         </td>
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |

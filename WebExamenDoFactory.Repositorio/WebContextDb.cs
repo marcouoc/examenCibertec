@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using WebExamenDoFactory.Model;
+using System.Diagnostics.CodeAnalysis;
 
 namespace WebExamenDoFactory.Repositorio
 {
+    [ExcludeFromCodeCoverage]
     public class WebContextDb : DbContext
     {
-        public WebContextDb() : base("name=DoFactoryBD")
+        public WebContextDb() : base("name=DoFactory")
         {
             Database.SetInitializer<WebContextDb>(null);
             Configuration.LazyLoadingEnabled = false;

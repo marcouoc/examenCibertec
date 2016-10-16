@@ -52,6 +52,10 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core">
       <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
@@ -157,9 +161,10 @@
     <Compile Include="Areas\DoFactoryBD\Controllers\FactoryBaseController.cs" />
     <Compile Include="Areas\DoFactoryBD\Controllers\PedidoController.cs" />
     <Compile Include="Areas\DoFactoryBD\Controllers\ProductoController.cs" />
-    <Compile Include="Areas\DoFactoryBD\Controllers\ProductoItemController.cs" />
+    <Compile Include="Areas\DoFactoryBD\Controllers\PedidoItemController.cs" />
     <Compile Include="Areas\DoFactoryBD\Controllers\ProveedorController.cs" />
     <Compile Include="Areas\DoFactoryBD\DoFactoryBDAreaRegistration.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -184,35 +189,35 @@
     <Content Include="Areas\DoFactoryBD\Views\web.config" />
     <Content Include="Areas\DoFactoryBD\Views\_ViewStart.cshtml" />
     <Content Include="Areas\DoFactoryBD\Views\Shared\_Layout.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Cliente\Creacion.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Cliente\Actualizar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Cliente\Eliminar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Cliente\Detalles.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Cliente\Lista.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Producto\Creacion.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Producto\Actualizar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Producto\Eliminar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Producto\Detalles.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Producto\Lista.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Creacion.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Actualizar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Eliminar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Detalles.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Lista.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Pedido\Creacion.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Pedido\Actualizar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Pedido\Eliminar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Pedido\Detalles.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\Pedido\Lista.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\ProductoItem\Creacion.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\ProductoItem\Actualizar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\ProductoItem\Eliminar.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\ProductoItem\Detalles.cshtml" />
-    <Content Include="Areas\DoFactoryBD\Views\ProductoItem\Lista.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Cliente\Create.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Cliente\Edit.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Cliente\Delete.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Cliente\Details.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Cliente\Index.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Producto\Create.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Producto\Edit.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Producto\Delete.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Producto\Details.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Producto\Index.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Create.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Edit.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Delete.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Details.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Proveedor\Index.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Pedido\Create.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Pedido\Edit.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Pedido\Delete.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\PedidoItem\Create.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\PedidoItem\Edit.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\PedidoItem\Delete.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\PedidoItem\Details.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\PedidoItem\Index.cshtml" />
     <Content Include="Css\site.css" />
     <Content Include="Css\site.min.css" />
     <Content Include="App_Code\CustomHelper.cshtml" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Content Include="Areas\DoFactoryBD\Views\Pedido\Index.cshtml" />
+    <Content Include="Areas\DoFactoryBD\Views\Pedido\Detail.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

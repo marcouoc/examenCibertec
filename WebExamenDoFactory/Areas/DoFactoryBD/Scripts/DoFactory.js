@@ -8,7 +8,7 @@ $(function () {
 
 
     baseUrl = document.getElementById('baseUrl').value;
-    alert('sales ' + document.getElementById('baseUrl').value);
+    //alert('sales ' + document.getElementById('baseUrl').value);
     goToPage(1);
     getTotalPage();
 });
@@ -16,13 +16,13 @@ $(function () {
 function goToPage(page) {
     var finalUrl = baseUrl + "/List?page=" + page + "&size=" + rowsByPage;
     $.get(finalUrl, function (data) {
-        $('#saleContent').html(data);
+        $('#doFactoryContent').html(data);
         currentPage = page;
     });
 }
 
 function getTotalPage() {
-    var finalUrl = baseUrl + "/PageTotal?rows=" + rowsByPage;
+    var finalUrl = baseUrl + "/PaginaTotal?rows=" + rowsByPage;
     $.get(finalUrl, function (data) {
         totalPage = data;
         setPaginator();

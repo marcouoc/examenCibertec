@@ -20,11 +20,12 @@
                     @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                 </div>
                 <nav class="navbar-collapse collapse">
-                 
+                <!--FALLO EN LA CONECTIVIDAD CON ENTITY if (Request.IsAuthenticated)-->
+              { 
                         <ul class="nav navbar-nav">
                             <li>
                                 @Html.ActionLink("Cliente",
-                                                 "Lista",
+                                                 "Index",
                                                  new
                                                  {
                                                      area = "DoFactoryBD",
@@ -32,36 +33,45 @@
                                                  })
                             </li>
                             <li>
-                                @Html.ActionLink("Product",
+                                @Html.ActionLink("Pedido",
                                                  "Index",
                                                  new
                                                  {
                                                      area = "DoFactoryBD",
-                                                     controller = "Products"
+                                                     controller = "Pedido"
                                                  })
                             </li>
 
                             <li>
-                                @Html.ActionLink("Customer",
+                                @Html.ActionLink("PedidoItem",
                                                  "Index",
                                                  new
                                                  {
                                                      area = "DoFactoryBD",
-                                                     controller = "Customers"
+                                                     controller = "PedidoItem"
                                                  })
                             </li>
                             <li>
-                                @Html.ActionLink("Sale",
+                                @Html.ActionLink("Producto",
                                                  "Index",
                                                  new
                                                  {
                                                      area = "DoFactoryBD",
-                                                     controller = "Sales"
+                                                     controller = "Producto"
+                                                 })
+                            </li>
+                            <li>
+                                @Html.ActionLink("Proveedor",
+                                                 "Index",
+                                                 new
+                                                 {
+                                                     area = "DoFactoryBD",
+                                                     controller = "Proveedor"
                                                  })
                             </li>
                         </ul>
-                    
-                    @Html.Partial("_LoginPartial")
+                 }
+                @Html.Partial("_LoginPartial")
                 </nav>
             </div>
         </div>

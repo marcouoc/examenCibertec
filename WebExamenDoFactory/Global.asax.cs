@@ -1,4 +1,5 @@
 ﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -17,7 +18,7 @@ namespace WebExamenDoFactory
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-           // log4net.Config.XmlConfigurator.Configure();
+           log4net.Config.XmlConfigurator.Configure();
         }
     }
 }

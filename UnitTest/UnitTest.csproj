@@ -35,7 +35,39 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions">
+      <HintPath>..\packages\FluentAssertions.4.14.0\lib\net45\FluentAssertions.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentAssertions.Core">
+      <HintPath>..\packages\FluentAssertions.4.14.0\lib\net45\FluentAssertions.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Moq">
+      <HintPath>..\packages\Moq.4.5.21\lib\net45\Moq.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Web.Mvc">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="xunit.assert">
+      <HintPath>..\packages\xunit.assert.2.1.0\lib\dotnet\xunit.assert.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.core">
+      <HintPath>..\packages\xunit.extensibility.core.2.1.0\lib\dotnet\xunit.core.dll</HintPath>
+    </Reference>
+    <Reference Include="xunit.execution.desktop">
+      <HintPath>..\packages\xunit.extensibility.execution.2.1.0\lib\net45\xunit.execution.desktop.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <Choose>
     <When Condition="('$(VisualStudioVersion)' == '10.0' or '$(VisualStudioVersion)' == '') and '$(TargetFrameworkVersion)' == 'v3.5'">
@@ -50,9 +82,44 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="UnitTest1.cs" />
+    <Compile Include="Controladores\ClienteControllerTest.cs" />
+    <Compile Include="Controladores\ProductoControllerTest.cs" />
+    <Compile Include="Controladores\ProveedorControllerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositorio\BaseRepositorioTest.cs" />
+    <Compile Include="Repositorio\WebExamenDoFactory.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>App.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Release.config">
+      <DependentUpon>App.config</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WebExamenDoFactory.Model\WebExamenDoFactory.Modelo.csproj">
+      <Project>{88bc85c0-d4cc-42ed-a608-97c309ed7421}</Project>
+      <Name>WebExamenDoFactory.Modelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebExamenDoFactory.Repositorio\WebExamenDoFactory.Repositorio.csproj">
+      <Project>{0e2fe539-371a-4d32-94cc-e60f18a29971}</Project>
+      <Name>WebExamenDoFactory.Repositorio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebExamenDoFactory\WebExamenDoFactory.csproj">
+      <Project>{ecd096d2-e8bf-4a26-8102-6c4a50e2a2f7}</Project>
+      <Name>WebExamenDoFactory</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
       <ItemGroup>
